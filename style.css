@@ -1,0 +1,305 @@
+:root {
+    --primary-color: #007BFF; /* A vibrant blue */
+    --secondary-color: #28a745; /* A supportive green */
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+/* Global Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    padding: 40px;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+/* Introduction Section */
+.introduction {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.introduction p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Options Menu */
+.options-menu h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.option-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center;
+}
+
+.option-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #e9ecef;
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 10px;
+    flex-basis: calc(33.33% - 20px);
+    min-width: 250px; 
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.option-link:hover {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+    line-height: 1; 
+}
+
+/* --- Styles for Sub-Pages (The content pages) --- */
+
+.sub-page {
+    background-color: var(--background-color); 
+    padding: 20px;
+    display: block; 
+}
+
+.sub-page-container {
+    max-width: 800px;
+    margin: 40px auto; 
+    padding: 30px;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+.sub-page-container h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.sub-page-container p {
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.sub-page-container ul {
+    list-style: disc inside;
+    margin-bottom: 1.5em;
+    padding-left: 20px;
+}
+
+.sub-page-container li {
+    margin-bottom: 0.5em;
+}
+
+.page-image {
+    width: 100%; 
+    height: auto;
+    max-height: 400px; 
+    object-fit: cover; 
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-light);
+}
+
+.back-link-container {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.back-link:hover {
+    background-color: #218838; 
+    transform: translateY(-2Apx);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    .option-link {
+        flex-basis: 100%; 
+    }
+    .sub-page-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .sub-page-container h1 {
+        font-size: 2em;
+    }
+}
+/* --- NEW STYLES FOR GATE SCREEN --- */
+
+/* Ensures the body takes up full height and centers content globally */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0; /* Remove padding from the body for the fullscreen gate */
+    margin: 0;
+}
+
+/* Styles for the full-screen gate page */
+.gate-screen {
+    position: fixed; /* Fixes it over the body content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color); /* Light background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100; /* Ensures it is on top */
+    transition: opacity 0.5s ease-out; /* Smooth fade-out effect */
+}
+
+.gate-screen h1 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+/* Styles for the Proceed Button */
+.proceed-button {
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.proceed-button:hover {
+    background-color: #218838; /* Darker green */
+    transform: scale(1.05);
+}
+
+/* Styles for the Main Content container */
+.container {
+    max-width: 900px;
+    width: 90%; /* Adjusted for better responsiveness */
+    padding: 40px;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    /* Initial state for the fade-in effect */
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    margin: 50px auto; /* Centers the main content after transition */
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* Update body padding for when main content is shown */
+body:not(.gate-active) {
+    padding: 20px; 
+}
+
+/* Responsive adjustment for the Gate Screen */
+@media (max-width: 600px) {
+    .gate-screen h1 {
+        font-size: 2em;
+    }
+    .proceed-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+/* --- Gallery-Specific Styles (for Captured Photos.html) - Museum Gallery Look --- */
+
+.photo-gallery {
+    display: grid;
+    /* Responsive columns: start with 1, grow to 2 or 3 on larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; /* Increased gap for better spacing */
+    margin-top: 40px;
+    padding: 20px; /* Padding within the gallery container */
+    background-color: #f0f0f0; /* Light background to make items pop */
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+}
+
+.gallery-item {
+    background-color: var(--card-background); /* White background for each photo frame */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow for depth */
+    overflow: hidden; /* Ensures image corners respect border-radius */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* Use flex to arrange image and caption vertically */
+    flex-direction: column;
+}

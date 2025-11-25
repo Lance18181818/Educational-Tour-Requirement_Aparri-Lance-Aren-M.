@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Tour Insights</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="gate-screen" class="gate-screen">
+        <h1>Educational Tour Requirement</h1>
+        <button id="proceed-button" class="proceed-button">
+            Proceed
+        </button>
+    </div>
+
+    <main id="main-content" class="container hidden">
+        <header class="introduction">
+            <h1> EDUCATIONAL TOUR 2025</h1>
+            <p>
+        Good day everyone! I’m excited to share my experiences from our educational tour to 
+        Baguio, where I learned, explored, and created unforgettable memories. Thank you for giving me the
+         opportunity to reflect on this meaningful journey.           
+         </p>
+        </header>
+
+        <section class="options-menu">
+            <h2>Choose an Area of Exploration:</h2>
+            <ul class="option-list">
+                <li>
+                    <a href="pages/excitement.html" target="_blank" class="option-link">
+                        <span class="icon">✨</span> The Excitement of the Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/learning.html" target="_blank" class="option-link">
+                        <span class="icon">🧠</span> Learning Beyond Classrooms
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/social-skills.html" target="_blank" class="option-link">
+                        <span class="icon">🤝</span> Building Social Skills
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/memories.html" target="_blank" class="option-link">
+                        <span class="icon">📸</span> Creating Lifelong Memories
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/educational-value.html" target="_blank" class="option-link">
+                        <span class="icon">📚</span> The Educational Value of Educational Tour
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/interpersonal.html" target="_blank" class="option-link">
+                        <span class="icon">👥</span> Interpersonal Development
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/life-skills.html" target="_blank" class="option-link">
+                        <span class="icon">🧭</span> Life Skills and Personal Growth
+                    </a>
+                </li>
+            <li>
+                <a href="pages/Captured Photos.html" target="_blank" class="option-link">
+                    <span class="icon">🖼️</span> Photos Captured
+                </a>
+            </li>
+        </ul>
+    </section>
+    
+</main>
+
+<script>
+        const gateScreen = document.getElementById('gate-screen');
+        const mainContent = document.getElementById('main-content');
+        const proceedButton = document.getElementById('proceed-button');
+
+     
+        function showMainContent() {
+            gateScreen.style.display = 'none';
+            mainContent.classList.remove('hidden');
+            mainContent.style.opacity = '1';
+            
+           
+            if (window.location.search) {
+                history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+
+       
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('from_content') === 'true') {
+            
+            showMainContent();
+        } else {
+          
+            proceedButton.addEventListener('click', function() {
+                
+                gateScreen.style.opacity = '0';
+                
+                setTimeout(function() {
+               
+                    showMainContent();
+                }, 500); 
+            });
+        }
+    </script>
+    
+</body>
+</html>
